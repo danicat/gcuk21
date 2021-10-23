@@ -1,5 +1,6 @@
 # 04 Managing State
 
-## State Diagram
+## Handling configuration with Viper
 
-## State Machines
+## Defining a card format
+

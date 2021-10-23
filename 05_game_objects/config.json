@@ -5,5 +5,10 @@
     "small_card_width": 150,
     "small_card_height": 300,
     "large_card_width": 450,
-    "large_card_height": 900
+    "large_card_height": 900,
+    "background_colour": "khaki",
+
+    "rules": {
+        "hand_size": 6
+    }
 }
