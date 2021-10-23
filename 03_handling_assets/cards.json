@@ -1,0 +1,16 @@
+{
+    "orientation": {
+        "name": "Orientation",
+        "description": "Allows player to travel. Recovers from Lost.",
+        "type": "battle",
+        "effects": {
+            "status": "oriented"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["lost", "healing", "escaping", "working"]
+        },
+        "count": 14,
+        "asset": "01_orientation.png"
+    }
+}

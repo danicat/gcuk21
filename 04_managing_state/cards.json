@@ -1,0 +1,28 @@
+{
+    "orientation": {
+        "name": "Orientation",
+        "type": "battle",
+        "effects": {
+            "status": "oriented"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["lost", "healing", "escaping", "working"]
+        },
+        "count": 14,
+        "asset": "assets/card.orientation.png"
+    },
+    "lost": {
+        "name": "Lost",
+        "type": "battle",
+        "effects": {
+            "status": "lost"
+        },
+        "rules": {
+            "target": "opponent",
+            "status": ["oriented"]
+        },
+        "count": 5,
+        "asset": "assets/card.lost.png"
+    }
+}
