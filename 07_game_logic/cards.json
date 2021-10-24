@@ -1,0 +1,273 @@
+{
+    "orientation": {
+        "name": "Orientation",
+        "type": "battle",
+        "effects": {
+            "status": "oriented"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["lost", "recovering", "escaping", "working"]
+        },
+        "asset": "assets/card.orientation.png",
+        "count": 14
+    },
+    "lost": {
+        "name": "Lost",
+        "type": "battle",
+        "effects": {
+            "status": "lost"
+        },
+        "rules": {
+            "target": "opponent",
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.lost.png",
+        "count": 5
+    },
+    "work": {
+        "name": "Work",
+        "type": "battle",
+        "effects": {
+            "status": "working"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["outofmoney"]
+        },
+        "asset": "assets/card.work.png",
+        "count": 6
+    },
+    "outofmoney": {
+        "name": "Out of Money",
+        "type": "battle",
+        "effects": {
+            "status": "outofmoney"
+        },
+        "rules": {
+            "target": "opponent",
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.outofmoney.png",
+        "count": 3
+    },
+    "escape": {
+        "name": "Escape",
+        "type": "battle",
+        "effects": {
+            "status": "escaping"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["captive"]
+        },
+        "asset": "assets/card.escape.png",
+        "count": 6
+    },
+    "hostiles" : {
+        "name": "Hostiles",
+        "type": "battle",
+        "effects": {
+            "status": "captive"
+        },
+        "rules": {
+            "target": "opponent",
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.hostiles.png",
+        "count": 3
+    },
+    "remedy": {
+        "name": "Remedy",
+        "type": "battle",
+        "effects": {
+            "status": "recovering"
+        },
+        "rules": {
+            "target": "self",
+            "status": ["sick"]
+        },
+        "asset": "assets/card.remedy.png",
+        "count": 6
+    },
+    "epidemic": {
+        "name": "Epidemic",
+        "type": "battle",
+        "effects": {
+            "status": "sick"
+        },
+        "rules": {
+            "target": "opponent",
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.epidemic.png",
+        "count": 3
+    },
+    "health": {
+        "name": "Health",
+        "type": "defense",
+        "effects": {
+            "resistance": "sick",
+            "bonus": 4000,
+            "counter_bonus": 12000
+        },
+        "rules": {
+            "target": "self"
+        },
+        "asset": "assets/card.health.png",
+        "count": 1
+    },
+    "riches": {
+        "name": "Riches",
+        "type": "defense",
+        "effects": {
+            "resistance": "outofmoney",
+            "bonus": 4000,
+            "counter_bonus": 12000
+        },
+        "rules": {
+            "target": "self"
+        },
+        "asset": "assets/card.riches.png",
+        "count": 1
+    },
+    "diplomacy": {
+        "name": "Diplomacy",
+        "type": "defense",
+        "effects": {
+            "resistance": "captive",
+            "bonus": 4000,
+            "counter_bonus": 12000
+        },
+        "rules": {
+            "target": "self"
+        },
+        "asset": "assets/card.diplomacy.png",
+        "count": 1
+    },
+    "routes": {
+        "name": "Alternative Routes",
+        "type": "defense",
+        "effects": {
+            "resistance": "lost",
+            "bonus": 4000,
+            "counter_bonus": 12000
+        },
+        "rules": {
+            "target": "self"
+        },
+        "asset": "assets/card.routes.png",
+        "count": 1
+    },
+    "civilization": {
+        "name": "Civilization",
+        "type": "terrain",
+        "effects": {
+            "terrain": "civilization"
+        },
+        "asset": "assets/card.civilization.png",
+        "count": 5
+    },
+    "savage_land": {
+        "name": "Savage Land",
+        "type": "terrain",
+        "effects": {
+            "terrain": "savage_land"
+        },
+        "asset": "assets/card.savage.png",
+        "count": 4
+    },
+    "sea": {
+        "name": "Sea",
+        "type": "terrain",
+        "effects": {
+            "terrain": "sea"
+        },
+        "asset": "assets/card.sea.png",
+        "count": 4
+    },
+    "desert": {
+        "name": "Desert",
+        "type": "terrain",
+        "effects": {
+            "terrain": "desert"
+        },
+        "asset": "assets/card.desert.png",
+        "count": 3
+    },
+    "1000": {
+        "name": "1000",
+        "type": "travel",
+        "effects": {
+            "distance": 1000
+        },
+        "rules": {
+            "target": "self",
+            "terrains": ["desert", "savage_land", "civilization"],
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.walking.png",
+        "count": 10
+
+    },
+    "2000": {
+        "name": "2000",
+        "type": "travel",
+        "value": 2000,
+        "effects": {
+            "distance": 2000
+        },
+        "rules": {
+            "target": "self",
+            "terrains": ["savage_land", "civilization"],
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.horse.png",
+        "count": 10
+    },
+    "3000": {
+        "name": "3000",
+        "type": "travel",
+        "value": 3000,
+        "effects": {
+            "distance": 3000
+        },
+        "rules": {
+            "target": "self",
+            "terrains": ["sea"],
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.boat.png",
+        "count": 10
+    },
+    "4000": {
+        "name": "4000",
+        "type": "travel",
+        "value": 4000,
+        "effects": {
+            "distance": 4000
+        },
+        "rules": {
+            "target": "self",
+            "terrains": ["civilization"],
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.train.png",
+        "count": 12
+    },
+    "8000": {
+        "name": "8000",
+        "type": "travel",
+        "value": 8000,
+        "effects": {
+            "distance": 8000
+        },
+        "rules": {
+            "target": "self",
+            "terrains": ["savage_land", "sea", "civilization"],
+            "status": ["oriented"]
+        },
+        "asset": "assets/card.balloon.png",
+        "count": 4
+    }
+}
