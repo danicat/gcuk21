@@ -1,0 +1,103 @@
+{
+    "name": "Around the World",
+    "hide_cpu_hand": true,
+    "cpu_delay_ms": 200,
+    "reverse_left_right": true,
+    "field": {
+        "background": "assets/background.png"
+    },
+    "layout": {
+        "screen": {
+            "width": 1280,
+            "height": 720
+        },
+        "info": {
+            "startX": 10,
+            "startY": 700
+        },
+        "card": {
+            "tiny": {
+                "width": 50,
+                "height": 75
+            },
+            "small": {
+                "width": 80,
+                "height": 120
+            },
+            "medium": {
+                "width": 120,
+                "height": 180
+            },
+            "large": {
+                "width": 200,
+                "height": 300
+            }
+        },
+        "deck": {
+            "startX": 40,
+            "startY": 200
+        },
+        "graveyard": {
+            "startX": 200,
+            "startY": 200
+        },
+        "hand": {
+            "startX": 465,
+            "startY": 580,
+            "step": 95,
+            "step2": 96
+        },
+        "player1": {
+            "score": {
+                "startX": 600,
+                "startY": 320
+            },
+            "battle": {
+                "startX": 200,
+                "startY": 400
+            },
+            "terrain":{
+                "startX": 40,
+                "startY": 400
+            },
+            "travel": {
+                "startX": 370,
+                "startY": 390,
+                "step": 40
+            },
+            "defense": {
+                "startX": 1040,
+                "startY": 350,
+                "step": 55
+            }
+        },
+        "player2": {
+            "score": {
+                "startX": 600,
+                "startY": 260
+            },
+            "battle": {
+                "startX": 200,
+                "startY": 5
+            },
+            "terrain":{
+                "startX": 40,
+                "startY": 5
+            },
+            "travel": {
+                "startX": 370,
+                "startY": 5,
+                "step": 40
+            },
+            "defense": {
+                "startX": 1040,
+                "startY": 145,
+                "step": 55
+            }
+        }
+    },
+    "rules": {
+        "hand_size": 6,
+        "max_distance": 40000
+    }
+}
