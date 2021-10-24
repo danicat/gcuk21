@@ -1,0 +1,37 @@
+{
+    "name": "Around the World",
+    "field": {
+        "background": "assets/background.png"
+    },
+    "layout": {
+        "screen": {
+            "width": 1280,
+            "height": 720
+        },
+        "card": {
+            "tiny": {
+                "width": 50,
+                "height": 150
+            },
+            "small": {
+                "width": 150,
+                "height": 300
+            },
+            "medium": {
+                "width": 120,
+                "height": 180
+            },
+            "large": {
+                "width": 450,
+                "height": 900
+            }
+        },
+        "deck": {
+            "startX": 40,
+            "startY": 200
+        }
+    },
+    "rules": {
+        "hand_size": 6
+    }
+}

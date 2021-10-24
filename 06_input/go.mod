@@ -1,4 +1,4 @@
-module github.com/danicat/gcuk21/05_game_objects
+module github.com/danicat/gcuk21/06_input
 
 go 1.16
 
