@@ -8,9 +8,9 @@
         },
         "rules": {
             "target": "self",
-            "status": ["lost", "healing", "escaping", "working"]
+            "status": ["lost", "recovering", "escaping", "working"]
         },
-        "count": 14,
-        "asset": "01_orientation.png"
+        "asset": "01_orientation.png",
+        "count": 14
     }
 }

@@ -2,8 +2,10 @@
     "name": "Around the World",
     "screen_width": 1280,
     "screen_height": 720,
-    "small_card_width": 150,
-    "small_card_height": 300,
-    "large_card_width": 450,
-    "large_card_height": 900
+    "card": {
+        "width": 200,
+        "height": 300,
+        "startX": 200,
+        "startY": 100
+    }
 }

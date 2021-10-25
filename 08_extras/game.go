@@ -237,12 +237,12 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		g.deck.DrawImage(screen)
 		g.graveyard.DrawImage(screen)
 
-		if g.currentPlayer == 0 || !viper.GetBool("hide_cpu_hand") {
-			g.players[g.currentPlayer].Hand().DrawImage(screen)
-		}
-
 		for _, p := range g.players {
 			p.DrawField(screen)
+		}
+
+		if g.currentPlayer == 0 || !viper.GetBool("hide_cpu_hand") {
+			g.players[g.currentPlayer].Hand().DrawImage(screen)
 		}
 
 		text.Draw(screen, fmt.Sprintf("Current Phase: Player %d - %s", g.currentPlayer+1, g.state), ttfRoboto, viper.GetInt("layout.info.startX"), viper.GetInt("layout.info.startY"), color.RGBA{R: 0xFF, G: 0x00, B: 0x00, A: 0xFF})

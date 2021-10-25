@@ -111,7 +111,6 @@ func NewGraveyard() *Graveyard {
 func (g *Graveyard) DrawImage(target *ebiten.Image) {
 	card, err := g.Top()
 	if err != nil {
-		// log.Printf("graveyard: can't draw image - %s", err)
 		return
 	}
 

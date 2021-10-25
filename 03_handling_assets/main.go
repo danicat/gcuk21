@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"sync"
 
 	_ "image/jpeg"
 	_ "image/png"
@@ -14,30 +15,45 @@ import (
 )
 
 type Game struct {
-	img *ebiten.Image
+	background *ebiten.Image
+	once       sync.Once
 }
 
 func (g *Game) Update() error {
-	if g.img == nil {
-		img, _, err := ebitenutil.NewImageFromFile("01_orientation.png")
+	g.once.Do(func() {
+		img, _, err := ebitenutil.NewImageFromFile("background.png")
 		if err != nil {
-			return err
+			log.Fatal(err)
 		}
-		g.img = img
-	}
+		g.background = img
+	})
+
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
-	screen.Fill(Colors["khaki"])
+	op := ResizeTo(g.background, nil, viper.GetInt("screen_width"), viper.GetInt("screen_height"))
+	screen.DrawImage(g.background, op)
 	c := Cards["orientation"]
-	w, h := screen.Size()
-	c.x, c.y = (w-viper.GetInt("small_card_width"))/2, (h-viper.GetInt("small_card_height"))/2
 	c.Draw(screen)
 }
 
 func (g *Game) Layout(width, height int) (int, int) {
 	return viper.GetInt("screen_width"), viper.GetInt("screen_height")
+}
+
+func ResizeTo(image *ebiten.Image, op *ebiten.DrawImageOptions, width, height int) *ebiten.DrawImageOptions {
+	if op == nil {
+		op = &ebiten.DrawImageOptions{}
+	}
+
+	w, h := image.Size()
+
+	scaleW := float64(width) / float64(w)
+	scaleH := float64(height) / float64(h)
+
+	op.GeoM.Scale(scaleW, scaleH)
+	return op
 }
 
 func main() {

@@ -5,18 +5,18 @@ import (
 	"log"
 	"os"
 
+	"github.com/spf13/viper"
+
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
-	"github.com/spf13/viper"
 )
 
 var Cards map[string]Card
 
 type Card struct {
-	Name        string
-	Description string
-	Type        string
-	Effects     struct {
+	Name    string
+	Type    string
+	Effects struct {
 		Status string
 	}
 	Rules struct {
@@ -26,8 +26,6 @@ type Card struct {
 	Asset string
 
 	Image *ebiten.Image
-
-	x, y int
 }
 
 func init() {
@@ -56,12 +54,7 @@ func init() {
 }
 
 func (c *Card) Draw(target *ebiten.Image) {
-	op := ebiten.DrawImageOptions{}
-	w, _ := c.Image.Size()
-	// log.Printf("w=%d, h=%d", w, h)
-	scale := float64(viper.GetInt("small_card_width")) / float64(w)
-	op.GeoM.Scale(scale, scale)
-	op.GeoM.Translate(float64(c.x), float64(c.y))
-	op.Filter = ebiten.FilterLinear
-	target.DrawImage(c.Image, &op)
+	op := ResizeTo(c.Image, nil, viper.GetInt("card.width"), viper.GetInt("card.height"))
+	op.GeoM.Translate(float64(viper.GetInt("card.startX")), float64(viper.GetInt("card.startY")))
+	target.DrawImage(c.Image, op)
 }

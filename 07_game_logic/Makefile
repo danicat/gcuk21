@@ -6,5 +6,5 @@ build: test
 	go build
 
 run: build
-	./06_input
+	./07_game_logic
 	
