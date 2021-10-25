@@ -34,6 +34,7 @@ func (g *Game) Update() error {
 func (g *Game) Draw(screen *ebiten.Image) {
 	op := ResizeTo(g.background, nil, viper.GetInt("screen_width"), viper.GetInt("screen_height"))
 	screen.DrawImage(g.background, op)
+
 	c := Cards["orientation"]
 	c.Draw(screen)
 }
@@ -56,10 +57,11 @@ func ResizeTo(image *ebiten.Image, op *ebiten.DrawImageOptions, width, height in
 	return op
 }
 
-func main() {
+func init() {
 	viper.SetConfigName("config")
 	viper.SetConfigType("json")
 	viper.AddConfigPath(".")
+
 	viper.OnConfigChange(func(e fsnotify.Event) {
 		log.Printf("Config file changed: %s", e.Name)
 	})
@@ -68,7 +70,9 @@ func main() {
 	if err := viper.ReadInConfig(); err != nil {
 		log.Fatal(err)
 	}
+}
 
+func main() {
 	ebiten.SetWindowTitle(viper.GetString("name"))
 	ebiten.SetWindowSize(viper.GetInt("screen_width"), viper.GetInt("screen_height"))
 	if err := ebiten.RunGame(&Game{}); err != nil {

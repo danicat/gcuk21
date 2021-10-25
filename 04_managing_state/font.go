@@ -9,7 +9,7 @@ import (
 	"golang.org/x/image/font/opentype"
 )
 
-var ttfRoboto font.Face
+var ttfRoboto, ttfRobotoLarge font.Face
 
 func init() {
 	f, err := os.Open("assets/Roboto-Bold.ttf")
@@ -30,6 +30,15 @@ func init() {
 	const dpi = 72
 	ttfRoboto, err = opentype.NewFace(tt, &opentype.FaceOptions{
 		Size:    24,
+		DPI:     dpi,
+		Hinting: font.HintingFull,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	ttfRobotoLarge, err = opentype.NewFace(tt, &opentype.FaceOptions{
+		Size:    48,
 		DPI:     dpi,
 		Hinting: font.HintingFull,
 	})

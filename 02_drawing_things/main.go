@@ -28,17 +28,18 @@ func (g *Game) Update() error {
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	op := ebiten.DrawImageOptions{}
-	op.GeoM.Scale(.2, .2)
-	op.GeoM.Translate(300, 200)
+	op.GeoM.Scale(.3, .3)
+	op.GeoM.Translate(300, 300)
 	screen.DrawImage(g.img, &op)
 }
 
 func (g *Game) Layout(width, height int) (int, int) {
-	return width, height
+	return 1280, 720
 }
 
 func main() {
 	ebiten.SetWindowTitle("Around the World")
+	ebiten.SetWindowSize(1280, 720)
 	if err := ebiten.RunGame(&Game{}); err != nil {
 		log.Fatal(err)
 	}
